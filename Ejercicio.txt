@@ -1,0 +1,85 @@
+# Ejercicio de Modelado de Ejércitos
+
+## Descripción
+El ejercicio consiste en modelar ejércitos con distintas características y reglas.  
+**Tiempo estimado:** ~3 horas.
+
+## Ejércitos
+- Cada ejército tiene una cantidad inicial de **piqueros**, **arqueros** y **caballeros**, según su civilización.  
+- Los ejércitos pueden coexistir incluso si pertenecen a la misma civilización.  
+- Al momento de la creación, cada ejército posee:
+  - **1000 monedas de oro**.
+  - Un historial de todas las batallas en las que participó.  
+
+## Unidades
+### Tipos de Unidades
+- **Piquero**
+- **Arquero**
+- **Caballero**
+
+### Puntos de Fuerza por Unidad
+| Unidad     | Puntos de Fuerza |
+|------------|------------------|
+| Piquero    | 5               |
+| Arquero    | 10              |
+| Caballero  | 20              |
+
+> **Nota:** La fuerza de una unidad nunca puede disminuir.
+
+### Cantidad Inicial de Unidades por Civilización
+| Civilización | Piqueros | Arqueros | Caballeros |
+|--------------|----------|----------|------------|
+| Chinos       | 2        | 25       | 2          |
+| Ingleses     | 10       | 10       | 10         |
+| Bizantinos   | 5        | 8        | 15         |
+
+## Entrenamiento
+Cada unidad puede ser entrenada a un costo en monedas de oro y recibe un beneficio en puntos de fuerza:
+
+| Unidad     | Puntos Obtenidos | Costo (monedas de oro) |
+|------------|------------------|------------------------|
+| Piquero    | 3                | 10                    |
+| Arquero    | 7                | 20                    |
+| Caballero  | 10               | 30                    |
+
+## Transformación
+Las unidades pueden transformarse en otras pagando un costo específico:
+
+| Unidad Original | Unidad Transformada | Costo (monedas de oro) |
+|-----------------|---------------------|------------------------|
+| Piquero         | Arquero             | 30                    |
+| Arquero         | Caballero           | 40                    |
+| Caballero       | No se puede transformar | -                |
+
+## Batallas
+- Un ejército puede atacar a otro en cualquier momento, incluso si son de la misma civilización.
+- El ganador de la batalla es el ejército con **más puntos de fuerza**.
+
+### Consecuencias de la Batalla:
+- **Ejército perdedor:** Pierde las dos unidades con mayor puntaje.
+- **Ejército ganador:** Obtiene **100 monedas de oro**.
+- **Empate:** Ambos ejércitos pierden unidades (queda a criterio del programador).
+
+## Casos Especiales a Considerar
+- **Nueva unidad: Mago**  
+  - Fuerza: **50 puntos**.  
+  - Se puede entrenar pero **no transformar**.  
+  - Ninguna otra unidad puede transformarse en Mago.  
+  - Reflexiona: ¿Cuánto código hay que cambiar?  
+
+- **Entrenamiento y transformación combinados:**  
+  - ¿Qué pasa si un Arquero se entrena tres veces y luego se transforma?  
+  - Analiza cómo se calcula su nueva fuerza.
+
+- **Restricciones:**  
+  - ¿Qué sucede si una acción no es válida o permitida?  
+  - ¿Cómo debe responder el programa ante estas situaciones?
+
+## Notas
+1. El objetivo principal es modelar correctamente el **dominio del problema**.  
+2. Este ejercicio puede desarrollarse en el lenguaje de preferencia (se recomienda **SmallTalk**, **Ruby** o **Python**).  
+3. **Focalízate** en lo solicitado; no es necesario ni recomendable agregar funcionalidades extra.  
+4. Toma decisiones ante dudas y, si es necesario, justifícalas.  
+5. No se deben persistir los objetos ni crear una interfaz de usuario.  
+6. Preferiblemente resolverlo en **inglés**.
+
