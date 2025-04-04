@@ -1,5 +1,5 @@
-from Unit import Unit
-from Knight import Knight
+from src.model.Unit import Unit
+from src.model.Knight import Knight
 
 class Archer(Unit):
     def __init__(self):

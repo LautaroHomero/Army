@@ -3,8 +3,8 @@ class Battle:
     def __init__(self) -> None:
         pass
 
-    @staticmethod
-    def battleBetween(armyI, armyII):  # Quitamos 'self'
+    
+    def battleBetween(self, armyI, armyII):  
         totalForceI = sum(unit.force for unit in armyI.unit)
         totalForceII = sum(unit.force for unit in armyII.unit)
 
@@ -17,5 +17,7 @@ class Battle:
         else:
             armyII.gold += 100
             armyI.loseUnits()
+
+        return self
 
     

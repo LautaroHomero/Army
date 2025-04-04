@@ -1,5 +1,5 @@
-from Unit import Unit
-from Archer import Archer
+from src.model.Unit import Unit
+from src.model.Archer import Archer
 
 class Pikeman(Unit):
     def __init__(self):

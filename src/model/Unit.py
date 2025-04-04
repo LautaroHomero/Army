@@ -5,11 +5,12 @@ class Unit:
         
     
     def training(self, army):
-        self.type.training(army)
+        return self
 
     def transform(self, army):
-        self.type.transform()
-
+        
+        return self
+        
     
     
     

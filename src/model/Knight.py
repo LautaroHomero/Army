@@ -1,4 +1,4 @@
-from Unit import Unit
+from src.model.Unit import Unit
 
 class Knight(Unit):
     def __init__(self):

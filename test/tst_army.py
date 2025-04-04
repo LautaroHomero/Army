@@ -1,10 +1,11 @@
+
 import unittest
-from Army import Army
-from Chinese import Chinese
-from English import English
-from Pikeman import Pikeman
-from Archer import Archer
-from Knight import Knight
+from src.model.Army import Army
+from src.model.Chinese import Chinese
+from src.model.English import English
+from src.model.Pikeman import Pikeman
+from src.model.Archer import Archer
+from src.model.Knight import Knight
 
 class TestArmySystem(unittest.TestCase):
 
@@ -53,6 +54,33 @@ class TestArmySystem(unittest.TestCase):
         self.army_chino.attack(self.army_ingles)
         self.assertEqual(len(self.army_chino.unit), 0)
         self.assertEqual(len(self.army_ingles.unit), 0)
+
+    def test_train_without_gold(self):
+        self.army_ingles.gold = 0
+        pikeman = next((u for u in self.army_ingles.unit if u.type == "Pikeman"), None)
+        with self.assertRaises(Exception):
+            pikeman.training(self.army_ingles)
+
+    def test_transform_without_gold(self):
+        self.army_ingles.gold = 0
+        pikeman = next((u for u in self.army_ingles.unit if u.type == "Pikeman"), None)
+        new_unit = pikeman.transform(self.army_ingles)
+        self.assertEqual(new_unit, pikeman)
+
+    def test_attack_with_less_than_one_unit(self):
+        self.army_ingles.unit = []
+        with self.assertRaises(Exception):
+            self.army_ingles.attack(self.army_chino)
+
+    def test_training_does_not_change_type(self):
+        archer = next((u for u in self.army_ingles.unit if u.type == "Archer"), None)
+        archer.training(self.army_ingles)
+        self.assertEqual(archer.type, "Archer")
+
+    def test_knight_cannot_transform(self):
+        knight = next((u for u in self.army_chino.unit if u.type == "Knight"), None)
+        new_unit = knight.transform(self.army_chino)
+        self.assertEqual(new_unit, knight)
 
 if __name__ == '__main__':
     unittest.main()

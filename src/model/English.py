@@ -1,7 +1,7 @@
-from Pikeman import Pikeman
-from Knight import Knight
-from Archer import Archer
-from Civilization import Civilization
+from src.model.Pikeman import Pikeman
+from src.model.Knight import Knight
+from src.model.Archer import Archer
+from src.model.Civilization import Civilization
 
 class English(Civilization):
     def __init__(self):
